@@ -18,7 +18,7 @@ Notes related resources of the **Notes API**
           "id": 1, "name": "customer1"
         }]
 
-### Create an Openstack installation [POST]
+### Create a Openstack installation [POST]
 + Request (application/json)
 
         { "name": "customer3" }
@@ -27,13 +27,13 @@ Notes related resources of the **Notes API**
 
         { "id": 2, "name": "customer3" }
 
-## Openstack Cluster [/openstack/{id}]
+## Openstack cluster [/openstack/{id}]
 ### A single openstack object with all available information        
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
 
-### Retrieve an Openstack [GET]
+### Retrieve a Openstack [GET]
 + Response 200 (application/json)
 
     + Body
@@ -43,7 +43,7 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack Hardware Collection [/openstack/{id}/hw]
+## Openstack cluster hardware [/openstack/{id}/hw]
 ### A single openstack object with detailed information about hardware configuration of the cluster       
 
 + Parameters
@@ -59,7 +59,7 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack Cluster Node [/openstack/{id}/hw/node0]
+## Openstack cluster node [/openstack/{id}/hw/node0]
 ### A single node object with all available information about hardware configuration of the node in the OpenStack cluster
 
 + Parameters
@@ -70,30 +70,56 @@ Notes related resources of the **Notes API**
 
     + Body
 
-            { "elements": ["cpu", "memory", "interfaces"] }
+            { "elements": ["cpu", "memory", "nic"] }
 
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## OpenStack Services Collection [/openstack/{id}/service]
-### List all OpenStack platform services [GET]
-+ Response 200 (application/json)
+## Openstack [/openstack/{id}/hw/node0/cpu]
+### A single openstack object with all available information          
 
-        [{
-          "id": 0, "class": "compute", "name": "nova"
-         }, {
-          "id": 1, "class": "identity", "name": "keystone"
-        }]
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
 
-### Add OpenStack platform service [PUT]
-+ Request (application/json)
-
-    + Body
-    
-            { "class": "object storage", "name": "swift" }
-
+### Retrieve a Openstack [GET]
 + Response 200 (application/json)
 
     + Body
-    
-            { "id": 2, "class": "object storage", "name": "swift" }
+
+            { "elements": ["cpu0", "cpu1", "cpu2", "cpu3"] }
+
+### Remove a Openstack [DELETE]
++ Response 204
+
+## Openstack [/openstack/{id}/hw/node0/cpu/cpu0]
+### A single openstack object with all available information          
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
+
+### Retrieve a Openstack [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { "elements": [ { "Name":  "Quad core Intel Core i5-3470 CPU", "cores" : 4, "freq" : 1600} ] }
+
+### Remove a Openstack [DELETE]
++ Response 204
+
+## Openstack [/openstack/{id}/hw/node0/memory]
+### A single openstack object with all available information          
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
+
+### Retrieve a Openstack [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { "elements": [ "total": 7673 ] }
+
+### Remove a Openstack [DELETE]
++ Response 204
+
