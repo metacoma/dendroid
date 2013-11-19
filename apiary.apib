@@ -54,8 +54,23 @@ Notes related resources of the **Notes API**
 
     + Body
 
-            { "id": 2, "elements": ["node0", "node1", "node2"] }
+            { "elements": ["node0", "node1", "node2"] }
 
 ### Remove a Openstack [DELETE]
 + Response 204
 
+## Openstack [/openstack/{id}/hw/node0]
+### A single openstack object with all available information          
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
+
+### Retrieve a Openstack [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { "elements": ["cpu", "memory", "interfaces"] }
+
+### Remove a Openstack [DELETE]
++ Response 204
