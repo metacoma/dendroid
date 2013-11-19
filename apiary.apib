@@ -123,3 +123,34 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
+## Openstack [/openstack/{id}/hw/node0/nic]
+### A single openstack object with all available information          
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
+
+### Retrieve a Openstack [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { "elements": [ "nic0", "nic1", "nic2", "nic3" ] }
+
+### Remove a Openstack [DELETE]
++ Response 204
+
+## Openstack [/openstack/{id}/hw/node0/nic0]
+### A single openstack object with all available information          
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
+
+### Retrieve a Openstack [GET]
++ Response 200 (application/json)
+
+    + Body
+
+            { "elements": [ { "speed": 10, "name": "Realtek RTL8111/8168" } ] }
+
+### Remove a Openstack [DELETE]
++ Response 204
