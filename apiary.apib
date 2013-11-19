@@ -59,12 +59,13 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack cluster node [/openstack/{id}/hw/node0]
+## Openstack cluster node [/openstack/{id}/hw/{nodeId}]
 ### A single node object with all available information about hardware configuration of the node in the OpenStack cluster
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
-
+    + nodeId (required, string, `node0`) ... String `nodeId` from the nodelist 
+    
 ### Retrieve a Openstack [GET]
 + Response 200 (application/json)
 
@@ -75,11 +76,14 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack [/openstack/{id}/hw/node0/cpu]
+## Openstack [/openstack/{id}/hw/{nodeID}/cpu]
 ### A single openstack object with all available information          
+
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
+    
+    
 
 ### Retrieve a Openstack [GET]
 + Response 200 (application/json)
@@ -91,11 +95,12 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack [/openstack/{id}/hw/node0/cpu/cpu0]
+## Openstack [/openstack/{id}/hw/{nodeId}/cpu/{cpuId}]
 ### A single openstack object with all available information          
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
+    
 
 ### Retrieve a Openstack [GET]
 + Response 200 (application/json)
@@ -107,7 +112,7 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack [/openstack/{id}/hw/node0/memory]
+## Openstack [/openstack/{id}/hw/{nodeId}/memory]
 ### A single openstack object with all available information          
 
 + Parameters
@@ -123,7 +128,7 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack [/openstack/{id}/hw/node0/nic]
+## Openstack [/openstack/{id}/hw/{nodeId}/nic]
 ### A single openstack object with all available information          
 
 + Parameters
@@ -139,7 +144,7 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack [/openstack/{id}/hw/node0/nic0]
+## Openstack [/openstack/{id}/hw/{nodeId}/nic/{nicId}]
 ### A single openstack object with all available information          
 
 + Parameters
