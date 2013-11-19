@@ -27,8 +27,8 @@ Notes related resources of the **Notes API**
 
         { "id": 2, "name": "customer3" }
 
-## Openstack [/openstack/{id}]
-### A single openstack object with all available information          
+## Openstack cluster [/openstack/{id}]
+### A single openstack object with all available information        
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
@@ -43,8 +43,8 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack [/openstack/{id}/hw]
-### A single openstack object with all available information          
+## Openstack cluster hardware [/openstack/{id}/hw]
+### A single openstack object with detailed information about hardware configuration of the cluster       
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
@@ -59,8 +59,8 @@ Notes related resources of the **Notes API**
 ### Remove a Openstack [DELETE]
 + Response 204
 
-## Openstack [/openstack/{id}/hw/node0]
-### A single openstack object with all available information          
+## Openstack cluster node [/openstack/{id}/hw/node0]
+### A single node object with all available information about hardware configuration of the node in the OpenStack cluster
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Openstack installation to perform action with. Has example value.
