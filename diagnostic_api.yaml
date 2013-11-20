@@ -98,4 +98,6 @@ service:
   -
     name: "keystone"
     type: "identity"
+    configuration:
+      param2: "value2"
 ---
