@@ -91,7 +91,7 @@ node:
       libvirt:
         -
           name: "instance-000001"
-          status: "running"
+          state: "running"
 ---
 service:
   -
