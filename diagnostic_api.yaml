@@ -2,39 +2,53 @@
 openstack:
   -
     id:
-      name: "Some Openstack Installation"
-
+    name: "Some Openstack Installation"
+    hw:
       cpu:
         cache: 6144
         cores: 4
         freq: 1600
         name: "Quad core Intel Core i5-3470 CPU"
+      
       memory:
         total: 7673.9
 
-      nic:
-        -
-          name: "eth0"
-          hwaddr: "60:a4:4c:ac:fe:d6"
-          ipaddr: "172.18.66.165"
-          model: "Realtek RTL8111/8168"
-          speed: 10
-        -
-          name: "eth1"
-          hwaddr: "52:54:00:cf:cd:8b"
-          ipaddr: "10.0.0.2"
-          model: "Realtek RTL8111/8168"
-          speed: 10
-        -
-          name: "eth2"
-          hwaddr: "00:1c:c4:5c:67:1a"
-          model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
-          speed: 1
-        -
-          name: "eth3"
-          hwaddr: "00:1c:c4:5c:67:1a"
-          model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
-          speed: 1
+      network:
+        nic:
+          -
+            name: "eth0"
+            hwaddr: "60:a4:4c:ac:fe:d6"
+            ipaddr: "172.18.66.165"
+            model: "Realtek RTL8111/8168"
+            speed: 10
+          -
+            name: "eth1"
+            hwaddr: "52:54:00:cf:cd:8b"
+            ipaddr: "10.0.0.2"
+            model: "Realtek RTL8111/8168"
+            speed: 10
+          -
+            name: "eth2"
+            hwaddr: "00:1c:c4:5c:67:1a"
+            model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+            speed: 1
+          -
+            name: "eth3"
+            hwaddr: "00:1c:c4:5c:67:1a"
+            model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+            speed: 1
+          iptables:
+            filter:
+              input:
+                - "rule1"
+                - "ruel2"
+              forward:
+                - "rule3"
+                - "rule4"
+              output:
+                - "rule5"
+              custom1:
+                - "rule6"
           
       storage:
         iscsi_target:
@@ -58,4 +72,13 @@ openstack:
               vg: "VolGroup00"
               name: "LogVol01"
               size: 10
+    service:
+      -
+        name: "nova"
+        type: "compute"
+        configuration:
+          param1: "value1"
+      -
+        name: "keystone"
+        type: "identity"
 ---
