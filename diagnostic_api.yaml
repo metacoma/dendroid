@@ -1,8 +1,8 @@
 ---
-openstack:
+node:
   -
-    id:
-    name: "Some Openstack Installation"
+    id: "UUID"
+    name: "FQDN"
     hw:
       cpu:
         cache: 6144
@@ -13,31 +13,40 @@ openstack:
       memory:
         total: 7673.9
 
+      nic:
+        -
+          name: "eth0"
+          hwaddr: "60:a4:4c:ac:fe:d6"
+          ipaddr: "172.18.66.165"
+          model: "Realtek RTL8111/8168"
+          speed: 10
+        -
+          name: "eth1"
+          hwaddr: "52:54:00:cf:cd:8b"
+          ipaddr: "10.0.0.2"
+          model: "Realtek RTL8111/8168"
+          speed: 10
+        -
+          name: "eth2"
+          hwaddr: "00:1c:c4:5c:67:1a"
+          model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+          speed: 1
+        -
+          name: "eth3"
+          hwaddr: "00:1c:c4:5c:67:1a"
+          model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+          speed: 1
+      disk:
+        -
+          name: "/dev/sda1"
+          size: 500
+        -
+          name: "/dev/sda2"
+          size: 500
+      
+    os:
       network:
-        nic:
-          -
-            name: "eth0"
-            hwaddr: "60:a4:4c:ac:fe:d6"
-            ipaddr: "172.18.66.165"
-            model: "Realtek RTL8111/8168"
-            speed: 10
-          -
-            name: "eth1"
-            hwaddr: "52:54:00:cf:cd:8b"
-            ipaddr: "10.0.0.2"
-            model: "Realtek RTL8111/8168"
-            speed: 10
-          -
-            name: "eth2"
-            hwaddr: "00:1c:c4:5c:67:1a"
-            model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
-            speed: 1
-          -
-            name: "eth3"
-            hwaddr: "00:1c:c4:5c:67:1a"
-            model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
-            speed: 1
-          iptables:
+        iptables:
             filter:
               input:
                 - "rule1"
@@ -56,10 +65,7 @@ openstack:
             name: "iqn.2001-04.com.example:diskarrays-sn-a8675309"
             lun: 0
             device: "/dev/sda1"
-        device:
-          -
-            name: "/dev/sda1"
-            size: 500
+        
         lvm:
           volgroup:
             -
@@ -72,13 +78,24 @@ openstack:
               vg: "VolGroup00"
               name: "LogVol01"
               size: 10
-    service:
-      -
-        name: "nova"
-        type: "compute"
-        configuration:
-          param1: "value1"
-      -
-        name: "keystone"
-        type: "identity"
+        
+        filesystem:
+          -
+            name: "/boot"
+            disk: "/dev/sdb1"
+            size: 1
+          -
+            name: "/"
+            disk: "/dev/sda1"
+            size: 500
+---
+service:
+  -
+    name: "nova"
+    type: "compute"
+    configuration:
+      param1: "value1"
+  -
+    name: "keystone"
+    type: "identity"
 ---
