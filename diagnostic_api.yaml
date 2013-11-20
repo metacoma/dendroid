@@ -14,19 +14,48 @@ openstack:
 
       nic:
         -
+          name: "eth0"
           hwaddr: "60:a4:4c:ac:fe:d6"
-          name: "Realtek RTL8111/8168"
+          ipaddr: "172.18.66.165"
+          model: "Realtek RTL8111/8168"
           speed: 10
         -
+          name: "eth1"
           hwaddr: "52:54:00:cf:cd:8b"
-          name: "Realtek RTL8111/8168"
+          ipaddr: "10.0.0.2"
+          model: "Realtek RTL8111/8168"
           speed: 10
         -
+          name: "eth2"
           hwaddr: "00:1c:c4:5c:67:1a"
-          name: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+          model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
           speed: 1
         -
+          name: "eth3"
           hwaddr: "00:1c:c4:5c:67:1a"
-          name: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+          model: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
           speed: 1
+          
+      storage:
+        iscsi_target:
+          -
+            name: "iqn.2001-04.com.example:diskarrays-sn-a8675309"
+            lun: 0
+            device: "/dev/sda1"
+        device:
+          -
+            name: "/dev/sda1"
+            size: 500
+        lvm:
+          volgroup:
+            -
+              name: "VolGroup00"
+              pv: 
+                - "/dev/sda1"
+                - "/dev/sdb1"
+          logvol:
+            -
+              vg: "VolGroup00"
+              name: "LogVol01"
+              size: 10
 ---
