@@ -9,7 +9,7 @@ node:
         cores: 4
         freq: 1600
         name: "Quad core Intel Core i5-3470 CPU"
-      
+
       memory:
         total: 7673.9
 
@@ -43,7 +43,7 @@ node:
         -
           name: "/dev/sda2"
           size: 500
-      
+
     os:
       network:
         iptables:
@@ -58,19 +58,19 @@ node:
                 - "rule5"
               custom1:
                 - "rule6"
-          
+
       storage:
         iscsi_target:
           -
             name: "iqn.2001-04.com.example:diskarrays-sn-a8675309"
             lun: 0
             device: "/dev/sda1"
-        
+
         lvm:
           volgroup:
             -
               name: "VolGroup00"
-              pv: 
+              pv:
                 - "/dev/sda1"
                 - "/dev/sdb1"
           logvol:
@@ -78,7 +78,7 @@ node:
               vg: "VolGroup00"
               name: "LogVol01"
               size: 10
-        
+
         filesystem:
           -
             name: "/boot"
@@ -101,3 +101,27 @@ service:
     configuration:
       param2: "value2"
 ---
+switch:
+    -
+        id: "UUID"
+        model: "switch model"
+        ports:
+            # port 0
+            -
+               speed: 10
+               mac:
+                    # seen mac addresses
+                    - "52:54:00:cf:cd:8b"
+                    - "52:54:00:cf:cd:8c"
+                    - "52:54:00:cf:cd:8d"
+            # ...
+            # port N
+            -
+                speed: 10
+                mac:
+                    # seen mac addresses
+                    - "52:54:01:cf:cd:8b"
+                    - "52:54:02:cf:cd:8c"
+                    - "52:54:03:cf:cd:8d"
+---
+
