@@ -1,0 +1,32 @@
+---
+openstack:
+  -
+    id:
+      name: "Some Openstack Installation"
+
+      cpu:
+        cache: 6144
+        cores: 4
+        freq: 1600
+        name: "Quad core Intel Core i5-3470 CPU"
+      memory:
+        total: 7673.9
+
+      nic:
+        -
+          hwaddr: "60:a4:4c:ac:fe:d6"
+          name: "Realtek RTL8111/8168"
+          speed: 10
+        -
+          hwaddr: "52:54:00:cf:cd:8b"
+          name: "Realtek RTL8111/8168"
+          speed: 10
+        -
+          hwaddr: "00:1c:c4:5c:67:1a"
+          name: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+          speed: 1
+        -
+          hwaddr: "00:1c:c4:5c:67:1a"
+          name: "Broadcom Corporation NetXtreme II BCM5708 Gigabit Ethernet "
+          speed: 1
+---
