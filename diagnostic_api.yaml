@@ -88,6 +88,10 @@ node:
             name: "/"
             disk: "/dev/sda1"
             size: 500
+      libvirt:
+        -
+          name: "instance-000001"
+          status: "running"
 ---
 service:
   -
