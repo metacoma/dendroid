@@ -9,6 +9,119 @@ This version of API is focused on OpenStack and resources managed by component s
 # Group Notes
 Notes related resources of the **Diagnostic API**
 
+## Nodes Collection [/node]
+### List all nodes known to the service [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 0, "name": "hostname-0.example.com"
+        }, {
+          "id": 1, "name": "hostname-1.example.com"
+        }]
+
+### Create node [POST]
++ Request (application/json)
+
+        { "name": "hostname-2.example.com" }
+
++ Response 200 (application/json)
+
+        { "id": 2, "name": "hostname-2.example.com" }
+
+## Node [/node/{id}]
+### Single node object that contains all available information about the node in parameters
++ Parameters
+      + id (required, string, `550e8400-e29b-41d4-a716-446655440000`) ... UUID of node in the API.
+
+### Detailed information about node object [GET]
++ Response 200 (application/json)
+
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000", "name": "hostname-1.example.com",
+          "hw": {
+            "cpu": {
+              "cache": 6144
+              "cores": 4
+              "freq": 1600
+              "name": "Quad core Intel Core i5-3470 CPU"
+            },
+            "memory": {
+              "total": 7673.9,
+            }
+            "nic": [{
+              "name": "eth0",
+              "hwaddr": "60:a4:4c:ac:fe:d6",
+              "ipaddr": "172.18.66.165",
+              "model": "Realtek RTL8111/8168",
+              "speed": 10,
+            }, {
+              "name": "eth1",
+              "hwaddr": "52:54:00:cf:cd:8b",
+              "ipaddr": "10.0.0.2",
+              "model": "Realtek RTL8111/8168",
+              "speed": 1,
+            }]
+          }
+          "disk": [{
+        -
+          name: "/dev/sda1"
+          size: 500
+        -
+          name: "/dev/sda2"
+          size: 500
+
+    os:
+      network:
+        iptables:
+            filter:
+              input:
+                - "rule1"
+                - "ruel2"
+              forward:
+                - "rule3"
+                - "rule4"
+              output:
+                - "rule5"
+              custom1:
+                - "rule6"
+        route:
+          - "route1"
+        netns:
+
+      storage:
+        iscsi_target:
+          -
+            name: "iqn.2001-04.com.example:diskarrays-sn-a8675309"
+            lun: 0
+            device: "/dev/sda1"
+
+        lvm:
+          volgroup:
+            -
+              name: "VolGroup00"
+              pv:
+                - "/dev/sda1"
+                - "/dev/sdb1"
+          logvol:
+            -
+              vg: "VolGroup00"
+              name: "LogVol01"
+              size: 10
+
+        filesystem:
+          -
+            name: "/boot"
+            disk: "/dev/sdb1"
+            size: 1
+          -
+            name: "/"
+            disk: "/dev/sda1"
+            size: 500
+      hypervisor:
+        -
+          name: "instance-000001"
+          state: "running"
+
 ## Openstack Collection [/openstack]
 ### List all Openstack installations [GET]
 + Response 200 (application/json)
