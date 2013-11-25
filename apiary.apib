@@ -186,6 +186,80 @@ Notes related resources of the **Diagnostic API**
                 }
             }
 
+## Node Operating System Configuration [/node/{id}/os]
+### Operating system level configurations of node identified by parameters
++ Parameters
+    + id (required, string, `550e8400-e29b-41d4-a716-446655440000`) ... UUID of node in the API.
+    
+### Get detailed information about operating system configuration of the node [GET]
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "id": "550e8400-e29b-41d4-a716-446655440000", "name": "hostname-1.example.com",
+                "os": {
+                    "network": {
+                        "iptables": {
+                            "filter": {
+                                "input": [
+                                    "rule1",
+                                    "ruel2" 
+                                ],
+                                "forward": [
+                                    "rule3",
+                                    "rule4"
+                                ],
+                                "output": [
+                                    "rule5"
+                                ],
+                                "custom1": [
+                                    "rule6"
+                                ]
+                            }
+                        },
+                        "route": [
+                            "route1",
+                            "route2",
+                        ],
+                        "netns": []
+                    },
+                    "storage": {
+                        "iscsi_target": [
+                            "name": "iqn.2001-04.com.example:diskarrays-sn-a8675309",
+                            "lun": 0,
+                            "device": "/dev/sda1"
+                        ],
+                    },
+                    "lvm": {
+                        "volgroup": [{
+                            "name": "VolGroup00",
+                            }],
+                        "pv": [
+                            "/dev/sda1",
+                            "/dev/sdb1"
+                        ],
+                        "logvol": [{
+                            "vg": "VolGroup00",
+                            "name": "LogVol01",
+                            "size": 10
+                        }]
+                    },
+                    "filesystem": [{
+                        "name": "/boot",
+                        "disk": "/dev/sdb1",
+                        "size": 1
+                    }, {
+                        "name": "/",
+                        "disk": "/dev/sda1",
+                        "size": 500
+                    }],
+                    "hypervisor": [{
+                        name": "instance-000001",
+                        "state": "running"
+                    }]
+                }
+            }
 
 ## Openstack Collection [/openstack]
 ### List all Openstack installations [GET]
